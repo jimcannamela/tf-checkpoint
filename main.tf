@@ -28,8 +28,15 @@ resource "aws_s3_object" "object" {
     source = var.source_file_name
 }
 
+# Set aws_default_vpc (optional, see aws_security_group hint for details)
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "Default VPC"
+  }
+}
+
 # aws_security_group
-#   aws_default_vpc (optional, see aws_security_group hint for details)
+
 # aws_iam_role_policy
 # aws_iam_role
 # aws_iam_instance_profile
