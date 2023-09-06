@@ -102,6 +102,7 @@ resource "aws_iam_role_policy" "jimc_ec2_role_policy" {
         Action = [
           "s3:CreateBucket",
           "s3:DeleteBucket",
+          "s3:GetObject",
           "s3:ListAllMyBuckets"
         ]
         Effect = "Allow"
