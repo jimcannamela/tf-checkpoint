@@ -17,3 +17,18 @@ output "object_key" {
     description = "Object key"
     value = aws_s3_object.object.key
 }
+
+output "vpc_id" {
+    description = "VPC id"
+    value = aws_default_vpc.default.id
+}
+
+output "security_group_arn" {
+    description = "Security group ARN"
+    value = aws_security_group.allowsshandhttp.arn
+}
+
+output "security_group_id" {
+    description = "Security group id"
+    value = aws_security_group.allowsshandhttp.id
+}
