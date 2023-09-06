@@ -14,6 +14,7 @@ provider "aws" {
 # Create an aws_s3_bucket
 resource "aws_s3_bucket" "s3bucket" {
   bucket = var.bucket_name
+#   force_destroy = true
 
   tags = {
     Name        = var.bucket_tag
@@ -23,7 +24,7 @@ resource "aws_s3_bucket" "s3bucket" {
 
 # Add an aws_s3_object (g-hello jar file)
 resource "aws_s3_object" "object" {
-    bucket = var.bucket_name
+    bucket = aws_s3_bucket.s3bucket.id
     key    = var.target_file_name
     source = var.source_file_name
 }
@@ -102,6 +103,7 @@ resource "aws_iam_role_policy" "jimc_ec2_role_policy" {
         Action = [
           "s3:CreateBucket",
           "s3:DeleteBucket",
+          "s3:DeleteObject",
           "s3:GetObject",
           "s3:ListAllMyBuckets"
         ]
