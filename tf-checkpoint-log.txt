@@ -1,0 +1,2785 @@
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git init
+Reinitialized existing Git repository in C:/Users/jimca/terraform/tf-checkpoint/.git/
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform init
+Terraform initialized in an empty directory!
+
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding hashicorp/aws versions matching "~> 4.0"...
+- Installing hashicorp/aws v4.67.0...
+- Installed hashicorp/aws v4.67.0 (signed by HashiCorp)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Initial Commit Requirements added"
+[main (root-commit) c5bd095] Initial Commit Requirements added
+ 4 files changed, 81 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 .terraform.lock.hcl
+ create mode 100644 build/libs/g-hello-0.0.1-SNAPSHOT.jar
+ create mode 100644 main.tf
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform plan
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform plan
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.jimctfbucket will be created
+  + resource "aws_s3_bucket" "jimctfbucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "jimc-tf-test-bucket"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + tags_all                    = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.jimctfbucket will be created
+  + resource "aws_s3_bucket" "jimctfbucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "jimc-tf-test-bucket"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + tags_all                    = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + bucket_id = {
+      + acceleration_status                  = (known after apply)
+      + acl                                  = (known after apply)
+      + arn                                  = (known after apply)
+      + bucket                               = "jimc-tf-test-bucket"
+      + bucket_domain_name                   = (known after apply)
+      + bucket_prefix                        = (known after apply)
+      + bucket_regional_domain_name          = (known after apply)
+      + cors_rule                            = (known after apply)
+      + force_destroy                        = false
+      + grant                                = (known after apply)
+      + hosted_zone_id                       = (known after apply)
+      + id                                   = (known after apply)
+      + lifecycle_rule                       = (known after apply)
+      + logging                              = (known after apply)
+      + object_lock_configuration            = (known after apply)
+      + object_lock_enabled                  = (known after apply)
+      + policy                               = (known after apply)
+      + region                               = (known after apply)
+      + replication_configuration            = (known after apply)
+      + request_payer                        = (known after apply)
+      + server_side_encryption_configuration = (known after apply)
+      + tags                                 = {
+          + Environment = "Dev"
+          + Name        = "Jim C TF Bucket"
+        }
+      + tags_all                             = {
+          + Environment = "Dev"
+          + Name        = "Jim C TF Bucket"
+        }
+      + timeouts                             = null
+      + versioning                           = (known after apply)
+      + website                              = (known after apply)
+      + website_domain                       = (known after apply)
+      + website_endpoint                     = (known after apply)
+    }
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_s3_bucket.jimctfbucket: Creating...
+╷
+│ Error: creating Amazon S3 (Simple Storage) Bucket (jimc-tf-test-bucket): BucketAlreadyOwnedByYou: Your previous request to create the named bucket succeeded and you already own it.
+│       status code: 409, request id: 55Q8HJ0W92VGGV7T, host id: B+UM9bDiObpZdZX2Ry2uPYU6+UYf0av7M1drKDnuHk/CCbjRVyhaVH6fJzMOC5W8r5eXpstmAzvoVA89AI7WLw==
+│
+│   with aws_s3_bucket.jimctfbucket,
+│   on main.tf line 15, in resource "aws_s3_bucket" "jimctfbucket":
+│   15: resource "aws_s3_bucket" "jimctfbucket" {
+│
+╵
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform plan
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.jimctfbucket will be created
+  + resource "aws_s3_bucket" "jimctfbucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "jimc-tf-bucket"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + tags_all                    = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + bucket_id = {
+      + acceleration_status                  = (known after apply)
+      + acl                                  = (known after apply)
+      + arn                                  = (known after apply)
+      + bucket                               = "jimc-tf-bucket"
+      + bucket_domain_name                   = (known after apply)
+      + bucket_prefix                        = (known after apply)
+      + bucket_regional_domain_name          = (known after apply)
+      + cors_rule                            = (known after apply)
+      + force_destroy                        = false
+      + grant                                = (known after apply)
+      + hosted_zone_id                       = (known after apply)
+      + id                                   = (known after apply)
+      + lifecycle_rule                       = (known after apply)
+      + logging                              = (known after apply)
+      + object_lock_configuration            = (known after apply)
+      + object_lock_enabled                  = (known after apply)
+      + policy                               = (known after apply)
+      + region                               = (known after apply)
+      + replication_configuration            = (known after apply)
+      + request_payer                        = (known after apply)
+      + server_side_encryption_configuration = (known after apply)
+      + tags                                 = {
+          + Environment = "Dev"
+          + Name        = "Jim C TF Bucket"
+        }
+      + tags_all                             = {
+          + Environment = "Dev"
+          + Name        = "Jim C TF Bucket"
+        }
+      + timeouts                             = null
+      + versioning                           = (known after apply)
+      + website                              = (known after apply)
+      + website_domain                       = (known after apply)
+      + website_endpoint                     = (known after apply)
+    }
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.jimctfbucket will be created
+  + resource "aws_s3_bucket" "jimctfbucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "jimc-tf-bucket"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + tags_all                    = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + bucket_id = {
+      + acceleration_status                  = (known after apply)
+      + acl                                  = (known after apply)
+      + arn                                  = (known after apply)
+      + bucket                               = "jimc-tf-bucket"
+      + bucket_domain_name                   = (known after apply)
+      + bucket_prefix                        = (known after apply)
+      + bucket_regional_domain_name          = (known after apply)
+      + cors_rule                            = (known after apply)
+      + force_destroy                        = false
+      + grant                                = (known after apply)
+      + hosted_zone_id                       = (known after apply)
+      + id                                   = (known after apply)
+      + lifecycle_rule                       = (known after apply)
+      + logging                              = (known after apply)
+      + object_lock_configuration            = (known after apply)
+      + object_lock_enabled                  = (known after apply)
+      + policy                               = (known after apply)
+      + region                               = (known after apply)
+      + replication_configuration            = (known after apply)
+      + request_payer                        = (known after apply)
+      + server_side_encryption_configuration = (known after apply)
+      + tags                                 = {
+          + Environment = "Dev"
+          + Name        = "Jim C TF Bucket"
+        }
+      + tags_all                             = {
+          + Environment = "Dev"
+          + Name        = "Jim C TF Bucket"
+        }
+      + timeouts                             = null
+      + versioning                           = (known after apply)
+      + website                              = (known after apply)
+      + website_domain                       = (known after apply)
+      + website_endpoint                     = (known after apply)
+    }
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_s3_bucket.jimctfbucket: Creating...
+aws_s3_bucket.jimctfbucket: Creation complete after 2s [id=jimc-tf-bucket]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_id = {
+  "acceleration_status" = ""
+  "acl" = tostring(null)
+  "arn" = "arn:aws:s3:::jimc-tf-bucket"
+  "bucket" = "jimc-tf-bucket"
+  "bucket_domain_name" = "jimc-tf-bucket.s3.amazonaws.com"
+  "bucket_prefix" = ""
+  "bucket_regional_domain_name" = "jimc-tf-bucket.s3.us-east-2.amazonaws.com"
+  "cors_rule" = tolist([])
+  "force_destroy" = false
+  "grant" = toset([
+    {
+      "id" = "8afd1aa706e84d60e96d675480145c180e48679334c2057fcb2702a345e6afef"
+      "permissions" = toset([
+        "FULL_CONTROL",
+      ])
+      "type" = "CanonicalUser"
+      "uri" = ""
+    },
+  ])
+  "hosted_zone_id" = "Z2O1EMRO9K5GLX"
+  "id" = "jimc-tf-bucket"
+  "lifecycle_rule" = tolist([])
+  "logging" = tolist([])
+  "object_lock_configuration" = tolist([])
+  "object_lock_enabled" = false
+  "policy" = ""
+  "region" = "us-east-2"
+  "replication_configuration" = tolist([])
+  "request_payer" = "BucketOwner"
+  "server_side_encryption_configuration" = tolist([
+    {
+      "rule" = tolist([
+        {
+          "apply_server_side_encryption_by_default" = tolist([
+            {
+              "kms_master_key_id" = ""
+              "sse_algorithm" = "AES256"
+            },
+          ])
+          "bucket_key_enabled" = false
+        },
+      ])
+    },
+  ])
+  "tags" = tomap({
+    "Environment" = "Dev"
+    "Name" = "Jim C TF Bucket"
+  })
+  "tags_all" = tomap({
+    "Environment" = "Dev"
+    "Name" = "Jim C TF Bucket"
+  })
+  "timeouts" = null /* object */
+  "versioning" = tolist([
+    {
+      "enabled" = false
+      "mfa_delete" = false
+    },
+  ])
+  "website" = tolist([])
+  "website_domain" = tostring(null)
+  "website_endpoint" = tostring(null)
+}
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_bucket.jimctfbucket: Refreshing state... [id=jimc-tf-bucket]
+
+Changes to Outputs:
+  + bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+  ~ bucket_id          = {
+      - acceleration_status                  = ""
+      - acl                                  = null
+      - arn                                  = "arn:aws:s3:::jimc-tf-bucket"
+      - bucket                               = "jimc-tf-bucket"
+      - bucket_domain_name                   = "jimc-tf-bucket.s3.amazonaws.com"
+      - bucket_prefix                        = ""
+      - bucket_regional_domain_name          = "jimc-tf-bucket.s3.us-east-2.amazonaws.com"
+      - cors_rule                            = []
+      - force_destroy                        = false
+      - grant                                = [
+          - {
+              - id          = "8afd1aa706e84d60e96d675480145c180e48679334c2057fcb2702a345e6afef"
+              - permissions = [
+                  - "FULL_CONTROL",
+                ]
+              - type        = "CanonicalUser"
+              - uri         = ""
+            },
+        ]
+      - hosted_zone_id                       = "Z2O1EMRO9K5GLX"
+      - id                                   = "jimc-tf-bucket"
+      - lifecycle_rule                       = []
+      - logging                              = []
+      - object_lock_configuration            = []
+      - object_lock_enabled                  = false
+      - policy                               = ""
+      - region                               = "us-east-2"
+      - replication_configuration            = []
+      - request_payer                        = "BucketOwner"
+      - server_side_encryption_configuration = [
+          - {
+              - rule = [
+                  - {
+                      - apply_server_side_encryption_by_default = [
+                          - {
+                              - kms_master_key_id = ""
+                              - sse_algorithm     = "AES256"
+                            },
+                        ]
+                      - bucket_key_enabled                      = false
+                    },
+                ]
+            },
+        ]
+      - tags                                 = {
+          - Environment = "Dev"
+          - Name        = "Jim C TF Bucket"
+        }
+      - tags_all                             = {
+          - Environment = "Dev"
+          - Name        = "Jim C TF Bucket"
+        }
+      - timeouts                             = null
+      - versioning                           = [
+          - {
+              - enabled    = false
+              - mfa_delete = false
+            },
+        ]
+      - website                              = []
+      - website_domain                       = null
+      - website_endpoint                     = null
+    } -> "jimc-tf-bucket"
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+bucket_id = "jimc-tf-bucket"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+╷
+│ Error: Reference to undeclared resource
+│
+│   on outputs.tf line 3, in output "bucket_arn":
+│    3:     value       = aws_s3_bucket.jimctfbucket.arn
+│
+│ A managed resource "aws_s3_bucket" "jimctfbucket" has not been declared in the root module.
+╵
+╷
+│ Error: Reference to undeclared resource
+│
+│   on outputs.tf line 8, in output "bucket_domain_name":
+│    8:     value       = aws_s3_bucket.jimctfbucket.bucket_domain_name
+│
+│ A managed resource "aws_s3_bucket" "jimctfbucket" has not been declared in the root module.
+╵
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_bucket.jimctfbucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.jimctfbucket will be destroyed
+  # (because aws_s3_bucket.jimctfbucket is not in configuration)
+  - resource "aws_s3_bucket" "jimctfbucket" {
+      - arn                         = "arn:aws:s3:::jimc-tf-bucket" -> null
+      - bucket                      = "jimc-tf-bucket" -> null
+      - bucket_domain_name          = "jimc-tf-bucket.s3.amazonaws.com" -> null
+      - bucket_regional_domain_name = "jimc-tf-bucket.s3.us-east-2.amazonaws.com" -> null
+      - force_destroy               = false -> null
+      - hosted_zone_id              = "Z2O1EMRO9K5GLX" -> null
+      - id                          = "jimc-tf-bucket" -> null
+      - object_lock_enabled         = false -> null
+      - region                      = "us-east-2" -> null
+      - request_payer               = "BucketOwner" -> null
+      - tags                        = {
+          - "Environment" = "Dev"
+          - "Name"        = "Jim C TF Bucket"
+        } -> null
+      - tags_all                    = {
+          - "Environment" = "Dev"
+          - "Name"        = "Jim C TF Bucket"
+        } -> null
+
+      - grant {
+          - id          = "8afd1aa706e84d60e96d675480145c180e48679334c2057fcb2702a345e6afef" -> null
+          - permissions = [
+              - "FULL_CONTROL",
+            ] -> null
+          - type        = "CanonicalUser" -> null
+        }
+
+      - server_side_encryption_configuration {
+          - rule {
+              - bucket_key_enabled = false -> null
+
+              - apply_server_side_encryption_by_default {
+                  - sse_algorithm = "AES256" -> null
+                }
+            }
+        }
+
+      - versioning {
+          - enabled    = false -> null
+          - mfa_delete = false -> null
+        }
+    }
+
+  # aws_s3_bucket.s3bucket will be created
+  + resource "aws_s3_bucket" "s3bucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "jimc-tf-bucket"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + tags_all                    = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 1 to destroy.
+
+Changes to Outputs:
+  + bucket_arn         = (known after apply)
+  ~ bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com" -> (known after apply)
+  - bucket_id          = "jimc-tf-bucket" -> null
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_s3_bucket.jimctfbucket: Destroying... [id=jimc-tf-bucket]
+aws_s3_bucket.s3bucket: Creating...
+aws_s3_bucket.jimctfbucket: Destruction complete after 0s
+aws_s3_bucket.s3bucket: Creation complete after 1s [id=jimc-tf-bucket]
+
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+
+Outputs:
+
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add .
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git status
+On branch main
+Your branch is based on 'origin/main', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   main.tf
+        new file:   outputs.tf
+        new file:   variables.tf
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -n "Successfully created s3 bucket using variables, with outputs"
+error: pathspec 'Successfully created s3 bucket using variables, with outputs' did not match any file(s) known to git
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -n "Successfully created s3 bucket using variables and outputs"
+error: pathspec 'Successfully created s3 bucket using variables and outputs' did not match any file(s) known to git
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Successfully created s3 bucket using variables, with outputs"
+[main 96cdaaa] Successfully created s3 bucket using variables, with outputs
+ 3 files changed, 29 insertions(+), 1 deletion(-)
+ create mode 100644 outputs.tf
+ create mode 100644 variables.tf
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$
+
+----
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform plan
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_object.object will be created
+  + resource "aws_s3_object" "object" {
+      + acl                    = "private"
+      + bucket                 = "jimc-tf-bucket"
+      + bucket_key_enabled     = (known after apply)
+      + content_type           = (known after apply)
+      + etag                   = (known after apply)
+      + force_destroy          = false
+      + id                     = (known after apply)
+      + key                    = "g-hello.jar"
+      + kms_key_id             = (known after apply)
+      + server_side_encryption = (known after apply)
+      + source                 = "/build/libs/g-hello-0.0.1-SNAPSHOT.jar"
+      + storage_class          = (known after apply)
+      + tags_all               = (known after apply)
+      + version_id             = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + object_id          = (known after apply)
+  + object_key         = "g-hello.jar"
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_object.object will be created
+  + resource "aws_s3_object" "object" {
+      + acl                    = "private"
+      + bucket                 = "jimc-tf-bucket"
+      + bucket_key_enabled     = (known after apply)
+      + content_type           = (known after apply)
+      + etag                   = (known after apply)
+      + force_destroy          = false
+      + id                     = (known after apply)
+      + key                    = "g-hello.jar"
+      + kms_key_id             = (known after apply)
+      + server_side_encryption = (known after apply)
+      + source                 = "/build/libs/g-hello-0.0.1-SNAPSHOT.jar"
+      + storage_class          = (known after apply)
+      + tags_all               = (known after apply)
+      + version_id             = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + object_id          = (known after apply)
+  + object_key         = "g-hello.jar"
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_s3_object.object: Creating...
+╷
+│ Error: opening S3 object source (/build/libs/g-hello-0.0.1-SNAPSHOT.jar): open /build/libs/g-hello-0.0.1-SNAPSHOT.jar: The system cannot find the path specified.
+│
+│   with aws_s3_object.object,
+│   on main.tf line 25, in resource "aws_s3_object" "object":
+│   25: resource "aws_s3_object" "object" {
+│
+╵
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_object.object will be created
+  + resource "aws_s3_object" "object" {
+      + acl                    = "private"
+      + bucket                 = "jimc-tf-bucket"
+      + bucket_key_enabled     = (known after apply)
+      + content_type           = (known after apply)
+      + etag                   = (known after apply)
+      + force_destroy          = false
+      + id                     = (known after apply)
+      + key                    = "g-hello.jar"
+      + kms_key_id             = (known after apply)
+      + server_side_encryption = (known after apply)
+      + source                 = "./build/libs/g-hello-0.0.1-SNAPSHOT.jar"
+      + storage_class          = (known after apply)
+      + tags_all               = (known after apply)
+      + version_id             = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + object_id          = (known after apply)
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_s3_object.object: Creating...
+aws_s3_object.object: Creation complete after 7s [id=g-hello.jar]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+object_id = "g-hello.jar"
+object_key = "g-hello.jar"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$
+
+----
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Successfully added the g-hello.jar to the s3 bucket using variables, with outputs"
+[main 1ce7c8e] Successfully added the g-hello.jar to the s3 bucket using variables, with outputs
+ 3 files changed, 29 insertions(+), 1 deletion(-)
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform plan
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_default_vpc.default will be created
+  + resource "aws_default_vpc" "default" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = (known after apply)
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_classiclink                   = (known after apply)
+      + enable_classiclink_dns_support       = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + existing_default_vpc                 = (known after apply)
+      + force_destroy                        = false
+      + id                                   = (known after apply)
+      + instance_tenancy                     = (known after apply)
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Name" = "Default VPC"
+        }
+      + tags_all                             = {
+          + "Name" = "Default VPC"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_default_vpc.default will be created
+  + resource "aws_default_vpc" "default" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = (known after apply)
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_classiclink                   = (known after apply)
+      + enable_classiclink_dns_support       = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + existing_default_vpc                 = (known after apply)
+      + force_destroy                        = false
+      + id                                   = (known after apply)
+      + instance_tenancy                     = (known after apply)
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Name" = "Default VPC"
+        }
+      + tags_all                             = {
+          + "Name" = "Default VPC"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_default_vpc.default: Creating...
+aws_default_vpc.default: Creation complete after 2s [id=vpc-0a45b8e72c09a7c94]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+object_id = "g-hello.jar"
+object_key = "g-hello.jar"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Successfully set default VPC"
+[main 9af195a] Successfully set default VPC
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git push origin main
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (21/21), 15.12 MiB | 2.80 MiB/s, done.
+Total 21 (delta 7), reused 0 (delta 0), pack-reused 0
+To gitlab.galvanizelabs.net:cohorts/sf/ase-apr-23/aws/students/jim-cannamela/tf-checkpoint.git
+ * [new branch]      main -> main
+----
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform plan
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_security_group.allowsshandhttp will be created
+  + resource "aws_security_group" "allowsshandhttp" {
+      + arn                    = (known after apply)
+      + description            = "Allow SSH and HTTP inbound traffic"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow all outbound traffic"
+              + from_port        = 0
+              + ipv6_cidr_blocks = [
+                  + "::/0",
+                ]
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow HTTP inbound traffic"
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow SSH inbound traffic"
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+            },
+        ]
+      + name                   = "allow_ssh_and_http"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "allow_ssh_and_http"
+        }
+      + tags_all               = {
+          + "Name" = "allow_ssh_and_http"
+        }
+      + vpc_id                 = "vpc-0a45b8e72c09a7c94"
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_security_group.allowsshandhttp will be created
+  + resource "aws_security_group" "allowsshandhttp" {
+      + arn                    = (known after apply)
+      + description            = "Allow SSH and HTTP inbound traffic"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow all outbound traffic"
+              + from_port        = 0
+              + ipv6_cidr_blocks = [
+                  + "::/0",
+                ]
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow HTTP inbound traffic"
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow SSH inbound traffic"
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+            },
+        ]
+      + name                   = "allow_ssh_and_http"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "allow_ssh_and_http"
+        }
+      + tags_all               = {
+          + "Name" = "allow_ssh_and_http"
+        }
+      + vpc_id                 = "vpc-0a45b8e72c09a7c94"
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value:   
+
+Apply cancelled.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_security_group.allowsshandhttp will be created
+  + resource "aws_security_group" "allowsshandhttp" {
+      + arn                    = (known after apply)
+      + description            = "Allow SSH and HTTP inbound traffic"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow all outbound traffic"
+              + from_port        = 0
+              + ipv6_cidr_blocks = [
+                  + "::/0",
+                ]
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow HTTP inbound traffic"
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow SSH inbound traffic"
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+            },
+        ]
+      + name                   = "allow_ssh_and_http"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "allow_ssh_and_http"
+        }
+      + tags_all               = {
+          + "Name" = "allow_ssh_and_http"
+        }
+      + vpc_id                 = "vpc-0a45b8e72c09a7c94"
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + security_group_arn = (known after apply)
+  + security_group_id  = (known after apply)
+  + vpc_id             = "vpc-0a45b8e72c09a7c94"
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_security_group.allowsshandhttp: Creating...
+aws_security_group.allowsshandhttp: Creation complete after 2s [id=sg-0a76c349b0f2ff2c9]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+object_id = "g-hello.jar"
+object_key = "g-hello.jar"
+security_group_arn = "arn:aws:ec2:us-east-2:257408455698:security-group/sg-0a76c349b0f2ff2c9"
+security_group_id = "sg-0a76c349b0f2ff2c9"
+vpc_id = "vpc-0a45b8e72c09a7c94"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Successfully create security group allowing ssh and http"
+[main 59a09fb] Successfully create security group allowing ssh and http
+ 2 files changed, 52 insertions(+), 2 deletions(-)
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.03 KiB | 1.03 MiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+To gitlab.galvanizelabs.net:cohorts/sf/ase-apr-23/aws/students/jim-cannamela/tf-checkpoint.git
+   9af195a..59a09fb  main -> main
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$
+
+----
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+aws_security_group.allowsshandhttp: Refreshing state... [id=sg-0a76c349b0f2ff2c9]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_iam_instance_profile.jimc_ec2_instance_profile will be created
+  + resource "aws_iam_instance_profile" "jimc_ec2_instance_profile" {
+      + arn         = (known after apply)
+      + create_date = (known after apply)
+      + id          = (known after apply)
+      + name        = "jimc_ec2_instance_profile"
+      + name_prefix = (known after apply)
+      + path        = "/"
+      + role        = "jimc_ec2_role"
+      + tags_all    = (known after apply)
+      + unique_id   = (known after apply)
+    }
+
+  # aws_iam_role.jimc_ec2_role will be created
+  + resource "aws_iam_role" "jimc_ec2_role" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "ec2.amazonaws.com"
+                        }
+                      + Sid       = ""
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "jimc_ec2_role"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + role_last_used        = (known after apply)
+      + tags_all              = (known after apply)
+      + unique_id             = (known after apply)
+    }
+
+  # aws_iam_role_policy.jimc_ec2_role_policy will be created
+  + resource "aws_iam_role_policy" "jimc_ec2_role_policy" {
+      + id     = (known after apply)
+      + name   = "jimc_ec2_role_policy"
+      + policy = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action   = [
+                          + "s3:CreateBucket",
+                          + "s3:DeleteBucket",
+                          + "s3:ListAllMyBuckets",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + role   = (known after apply)
+    }
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + iam_instance_profile_id = (known after apply)
+  + iam_role_id             = (known after apply)
+  + iam_role_policy_id      = (known after apply)
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_iam_role.jimc_ec2_role: Creating...
+aws_iam_role.jimc_ec2_role: Creation complete after 1s [id=jimc_ec2_role]
+aws_iam_role_policy.jimc_ec2_role_policy: Creating...
+aws_iam_instance_profile.jimc_ec2_instance_profile: Creating...
+aws_iam_role_policy.jimc_ec2_role_policy: Creation complete after 0s [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_iam_instance_profile.jimc_ec2_instance_profile: Creation complete after 0s [id=jimc_ec2_instance_profile]
+
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+iam_instance_profile_id = "jimc_ec2_instance_profile"
+iam_role_id = "jimc_ec2_role"
+iam_role_policy_id = "jimc_ec2_role:jimc_ec2_role_policy"
+object_id = "g-hello.jar"
+object_key = "g-hello.jar"
+security_group_arn = "arn:aws:ec2:us-east-2:257408455698:security-group/sg-0a76c349b0f2ff2c9"
+security_group_id = "sg-0a76c349b0f2ff2c9"
+vpc_id = "vpc-0a45b8e72c09a7c94"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Successfully created IAM role, role policy, and instance profile"
+[main 7303a66] Successfully created IAM role, role policy, and instance profile
+ 2 files changed, 66 insertions(+), 8 deletions(-)
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git puch
+git: 'puch' is not a git command. See 'git --help'.
+
+The most similar command is
+        push
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 954 bytes | 954.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To gitlab.galvanizelabs.net:cohorts/sf/ase-apr-23/aws/students/jim-cannamela/tf-checkpoint.git
+   59a09fb..7303a66  main -> main
+
+----
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_iam_role.jimc_ec2_role: Refreshing state... [id=jimc_ec2_role]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+aws_iam_role_policy.jimc_ec2_role_policy: Refreshing state... [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_iam_instance_profile.jimc_ec2_instance_profile: Refreshing state... [id=jimc_ec2_instance_profile]
+aws_security_group.allowsshandhttp: Refreshing state... [id=sg-0a76c349b0f2ff2c9]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.app_server will be created
+  + resource "aws_instance" "app_server" {
+      + ami                                  = "ami-0911e88fb4687e06b"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = "jimc_ec2_instance_profile"
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "JimCAWSInstanceKey"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = [
+          + "allow_ssh_and_http",
+        ]
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "jimc-tf-instance"
+        }
+      + tags_all                             = {
+          + "Name" = "jimc-tf-instance"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_instance.app_server: Creating...
+aws_instance.app_server: Still creating... [10s elapsed]
+aws_instance.app_server: Still creating... [20s elapsed]
+aws_instance.app_server: Still creating... [30s elapsed]
+aws_instance.app_server: Creation complete after 32s [id=i-0135960f56d2e4bc1]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+iam_instance_profile_id = "jimc_ec2_instance_profile"
+iam_role_id = "jimc_ec2_role"
+iam_role_policy_id = "jimc_ec2_role:jimc_ec2_role_policy"
+object_id = "g-hello.jar"
+object_key = "g-hello.jar"
+security_group_arn = "arn:aws:ec2:us-east-2:257408455698:security-group/sg-0a76c349b0f2ff2c9"
+security_group_id = "sg-0a76c349b0f2ff2c9"
+vpc_id = "vpc-0a45b8e72c09a7c94"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_iam_role.jimc_ec2_role: Refreshing state... [id=jimc_ec2_role]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+aws_iam_role_policy.jimc_ec2_role_policy: Refreshing state... [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_iam_instance_profile.jimc_ec2_instance_profile: Refreshing state... [id=jimc_ec2_instance_profile]
+aws_security_group.allowsshandhttp: Refreshing state... [id=sg-0a76c349b0f2ff2c9]
+aws_instance.app_server: Refreshing state... [id=i-0135960f56d2e4bc1]
+
+Changes to Outputs:
+  + aws_instance_arn        = "arn:aws:ec2:us-east-2:257408455698:instance/i-0135960f56d2e4bc1"
+  + aws_instance_public_ip  = "3.145.58.40"
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+aws_instance_arn = "arn:aws:ec2:us-east-2:257408455698:instance/i-0135960f56d2e4bc1"
+aws_instance_public_ip = "3.145.58.40"
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+iam_instance_profile_id = "jimc_ec2_instance_profile"
+iam_role_id = "jimc_ec2_role"
+iam_role_policy_id = "jimc_ec2_role:jimc_ec2_role_policy"
+object_id = "g-hello.jar"
+object_key = "g-hello.jar"
+security_group_arn = "arn:aws:ec2:us-east-2:257408455698:security-group/sg-0a76c349b0f2ff2c9"
+security_group_id = "sg-0a76c349b0f2ff2c9"
+vpc_id = "vpc-0a45b8e72c09a7c94"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Successfully created EC2 Instance"
+[main f2b28bc] Successfully created EC2 Instance
+ 2 files changed, 27 insertions(+), 1 deletion(-)
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 739 bytes | 739.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To gitlab.galvanizelabs.net:cohorts/sf/ase-apr-23/aws/students/jim-cannamela/tf-checkpoint.git
+   7303a66..f2b28bc  main -> main
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$
+
+----
+
+An error occurred (AccessDenied) when calling the GetObject operation: Access Denied
+Error: Unable to access jarfile g-hello.jar
+[ec2-user@ip-172-31-10-229 /]$ aws s3api get-object --bucket "jimc-tf-bucket" --key "g-hello.jar" "g-hello.jar"
+
+An error occurred (AccessDenied) when calling the GetObject operation: Access Denied
+[ec2-user@ip-172-31-10-229 /]$ xit
+-bash: xit: command not found
+[ec2-user@ip-172-31-10-229 /]$ exit
+logout
+Connection to ec2-3-145-58-40.us-east-2.compute.amazonaws.com closed.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_iam_role.jimc_ec2_role: Refreshing state... [id=jimc_ec2_role]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+aws_iam_role_policy.jimc_ec2_role_policy: Refreshing state... [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_iam_instance_profile.jimc_ec2_instance_profile: Refreshing state... [id=jimc_ec2_instance_profile]
+aws_security_group.allowsshandhttp: Refreshing state... [id=sg-0a76c349b0f2ff2c9]
+aws_instance.app_server: Refreshing state... [id=i-0135960f56d2e4bc1]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_iam_role_policy.jimc_ec2_role_policy will be updated in-place
+  ~ resource "aws_iam_role_policy" "jimc_ec2_role_policy" {
+        id     = "jimc_ec2_role:jimc_ec2_role_policy"
+        name   = "jimc_ec2_role_policy"
+      ~ policy = jsonencode(
+          ~ {
+              ~ Statement = [
+                  ~ {
+                      ~ Action   = [
+                            # (1 unchanged element hidden)
+                            "s3:DeleteBucket",
+                          + "s3:GetObject",
+                            "s3:ListAllMyBuckets",
+                        ]
+                        # (2 unchanged attributes hidden)
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            }
+        )
+        # (1 unchanged attribute hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_iam_role_policy.jimc_ec2_role_policy: Modifying... [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_iam_role_policy.jimc_ec2_role_policy: Modifications complete after 0s [id=jimc_ec2_role:jimc_ec2_role_policy]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+Outputs:
+
+aws_instance_arn = "arn:aws:ec2:us-east-2:257408455698:instance/i-0135960f56d2e4bc1"
+aws_instance_public_ip = "3.145.58.40"
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+iam_instance_profile_id = "jimc_ec2_instance_profile"
+iam_role_id = "jimc_ec2_role"
+iam_role_policy_id = "jimc_ec2_role:jimc_ec2_role_policy"
+object_id = "g-hello.jar"
+object_key = "g-hello.jar"
+security_group_arn = "arn:aws:ec2:us-east-2:257408455698:security-group/sg-0a76c349b0f2ff2c9"
+security_group_id = "sg-0a76c349b0f2ff2c9"
+vpc_id = "vpc-0a45b8e72c09a7c94"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Added GetObject to IAM Role Policy"
+[main 368a9a2] Added GetObject to IAM Role Policy
+ 1 file changed, 1 insertion(+)
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 325 bytes | 325.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+To gitlab.galvanizelabs.net:cohorts/sf/ase-apr-23/aws/students/jim-cannamela/tf-checkpoint.git
+   f2b28bc..368a9a2  main -> main
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$
+
+----
+
+Application started up, however would not serve up the page on port 80 updates security group to 8080
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_iam_role.jimc_ec2_role: Refreshing state... [id=jimc_ec2_role]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+aws_iam_role_policy.jimc_ec2_role_policy: Refreshing state... [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_iam_instance_profile.jimc_ec2_instance_profile: Refreshing state... [id=jimc_ec2_instance_profile]
+aws_security_group.allowsshandhttp: Refreshing state... [id=sg-0a76c349b0f2ff2c9]
+aws_instance.app_server: Refreshing state... [id=i-0135960f56d2e4bc1]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_security_group.allowsshandhttp will be updated in-place
+  ~ resource "aws_security_group" "allowsshandhttp" {
+        id                     = "sg-0a76c349b0f2ff2c9"
+      ~ ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = "Allow HTTP inbound traffic"
+              - from_port        = 80
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 80
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow HTTP inbound traffic"
+              + from_port        = 8080
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 8080
+            },
+            # (1 unchanged element hidden)
+        ]
+        name                   = "allow_ssh_and_http"
+        tags                   = {
+            "Name" = "allow_ssh_and_http"
+        }
+        # (7 unchanged attributes hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_security_group.allowsshandhttp: Modifying... [id=sg-0a76c349b0f2ff2c9]
+aws_security_group.allowsshandhttp: Modifications complete after 0s [id=sg-0a76c349b0f2ff2c9]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+Outputs:
+
+aws_instance_arn = "arn:aws:ec2:us-east-2:257408455698:instance/i-0135960f56d2e4bc1"
+aws_instance_public_ip = "3.145.58.40"
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+iam_instance_profile_id = "jimc_ec2_instance_profile"
+iam_role_id = "jimc_ec2_role"
+iam_role_policy_id = "jimc_ec2_role:jimc_ec2_role_policy"
+object_id = "g-hello.jar"
+object_key = "g-hello.jar"
+security_group_arn = "arn:aws:ec2:us-east-2:257408455698:security-group/sg-0a76c349b0f2ff2c9"
+security_group_id = "sg-0a76c349b0f2ff2c9"
+vpc_id = "vpc-0a45b8e72c09a7c94"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ ssh -i "~/Downloads/JimCAWSInstanceKey.pem" ec2-user@ec2-3-145-58-40.us-east-2.compute.amazonaws.com
+Last login: Wed Sep  6 20:02:34 2023 from 98.215.246.43
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-10-229 ~]$ cd /
+[ec2-user@ip-172-31-10-229 /]$ sudo ./start.sh
+sudo: ./start.sh: command not found
+[ec2-user@ip-172-31-10-229 /]$ ll
+total 17248
+lrwxrwxrwx   1 root root        7 Aug 22 18:25 bin -> usr/bin
+dr-xr-xr-x   4 root root     4096 Sep  6 19:56 boot
+drwxr-xr-x  15 root root     2900 Sep  6 19:34 dev
+drwxr-xr-x  86 root root     8192 Sep  6 19:56 etc
+-rw-r--r--   1 root root 17641432 Sep  6 20:04 g-hello.jar
+drwxr-xr-x   3 root root       22 Sep  6 19:34 home
+lrwxrwxrwx   1 root root        7 Aug 22 18:25 lib -> usr/lib
+lrwxrwxrwx   1 root root        9 Aug 22 18:25 lib64 -> usr/lib64
+drwxr-xr-x   2 root root        6 Aug 22 18:25 local
+drwxr-xr-x   2 root root        6 Apr  9  2019 media
+drwxr-xr-x   2 root root        6 Apr  9  2019 mnt
+drwxr-xr-x   4 root root       27 Aug 22 18:26 opt
+dr-xr-xr-x 154 root root        0 Sep  6 19:33 proc
+dr-xr-x---   3 root root      119 Sep  6 19:55 root
+drwxr-xr-x  28 root root      980 Sep  6 20:04 run
+lrwxrwxrwx   1 root root        8 Aug 22 18:25 sbin -> usr/sbin
+drwxr-xr-x   2 root root        6 Apr  9  2019 srv
+-rwxr--r--   1 root root      177 Sep  6 19:55 startup.sh
+dr-xr-xr-x  13 root root        0 Sep  6 19:33 sys
+drwxrwxrwt  10 root root      314 Sep  6 20:10 tmp
+drwxr-xr-x  13 root root      155 Aug 22 18:25 usr
+drwxr-xr-x  19 root root      269 Sep  6 19:34 var
+[ec2-user@ip-172-31-10-229 /]$ sudo ./startup.sh
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                                                                                                                                                                                     | 3.7 kB  00:00:00     
+No packages marked for update
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Package 1:java-11-amazon-corretto-headless-11.0.20+9-1.amzn2.x86_64 already installed and latest version
+Nothing to do
+{
+    "AcceptRanges": "bytes",
+    "ContentType": "binary/octet-stream",
+    "LastModified": "Wed, 06 Sep 2023 18:52:55 GMT",
+    "ContentLength": 17641432,
+    "ETag": "\"d9eb49286a7d9efbcce1c85ac2711c4c-4\"",
+    "ServerSideEncryption": "AES256",
+    "Metadata": {}
+}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.6)
+
+2023-09-06 20:13:47.167  INFO 14243 --- [           main] com.galvanize.ghello.GHelloApplication   : Starting GHelloApplication using Java 11.0.20.1 on ip-172-31-10-229.us-east-2.compute.internal with PID 14243 (/g-hello.jar started by root in /)
+2023-09-06 20:13:47.174  INFO 14243 --- [           main] com.galvanize.ghello.GHelloApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-09-06 20:13:50.142  INFO 14243 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-06 20:13:50.185  INFO 14243 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-06 20:13:50.188  INFO 14243 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-09-06 20:13:50.455  INFO 14243 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-06 20:13:50.459  INFO 14243 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3151 ms
+2023-09-06 20:13:51.906  INFO 14243 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-06 20:13:51.937  INFO 14243 --- [           main] com.galvanize.ghello.GHelloApplication   : Started GHelloApplication in 5.938 seconds (JVM running for 7.021)
+2023-09-06 20:13:57.436  INFO 14243 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-06 20:13:57.436  INFO 14243 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-06 20:13:57.440  INFO 14243 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+^C[ec2-user@ip-172-31-10-229 /]$ exit
+logout
+Connection to ec2-3-145-58-40.us-east-2.compute.amazonaws.com closed.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Changed Security Group to open port 8080 instead of 80 for http traffic"
+[main 2ddaa88] Changed Security Group to open port 8080 instead of 80 for http traffic
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 340 bytes | 340.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+To gitlab.galvanizelabs.net:cohorts/sf/ase-apr-23/aws/students/jim-cannamela/tf-checkpoint.git
+   368a9a2..2ddaa88  main -> main
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$
+
+----
+
+imca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform destroy
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_s3_object.object: Refreshing state... [id=g-hello.jar]
+aws_iam_role.jimc_ec2_role: Refreshing state... [id=jimc_ec2_role]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+aws_iam_role_policy.jimc_ec2_role_policy: Refreshing state... [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_iam_instance_profile.jimc_ec2_instance_profile: Refreshing state... [id=jimc_ec2_instance_profile]
+aws_security_group.allowsshandhttp: Refreshing state... [id=sg-0a76c349b0f2ff2c9]
+aws_instance.app_server: Refreshing state... [id=i-0135960f56d2e4bc1]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_default_vpc.default will be destroyed
+  - resource "aws_default_vpc" "default" {
+      - arn                                  = "arn:aws:ec2:us-east-2:257408455698:vpc/vpc-0a45b8e72c09a7c94" -> null
+      - assign_generated_ipv6_cidr_block     = false -> null
+      - cidr_block                           = "172.31.0.0/16" -> null
+      - default_network_acl_id               = "acl-03901657f7f2f1829" -> null
+      - default_route_table_id               = "rtb-0b1aa08b44a507bc0" -> null
+      - default_security_group_id            = "sg-0ebabb6d885eba7de" -> null
+      - dhcp_options_id                      = "dopt-053408b761cdeb3fa" -> null
+      - enable_classiclink                   = false -> null
+      - enable_classiclink_dns_support       = false -> null
+      - enable_dns_hostnames                 = true -> null
+      - enable_dns_support                   = true -> null
+      - enable_network_address_usage_metrics = false -> null
+      - existing_default_vpc                 = true -> null
+      - force_destroy                        = false -> null
+      - id                                   = "vpc-0a45b8e72c09a7c94" -> null
+      - instance_tenancy                     = "default" -> null
+      - ipv6_netmask_length                  = 0 -> null
+      - main_route_table_id                  = "rtb-0b1aa08b44a507bc0" -> null
+      - owner_id                             = "257408455698" -> null
+      - tags                                 = {
+          - "Name" = "Default VPC"
+        } -> null
+      - tags_all                             = {
+          - "Name" = "Default VPC"
+        } -> null
+    }
+
+  # aws_iam_instance_profile.jimc_ec2_instance_profile will be destroyed
+  - resource "aws_iam_instance_profile" "jimc_ec2_instance_profile" {
+      - arn         = "arn:aws:iam::257408455698:instance-profile/jimc_ec2_instance_profile" -> null
+      - create_date = "2023-09-06T19:23:17Z" -> null
+      - id          = "jimc_ec2_instance_profile" -> null
+      - name        = "jimc_ec2_instance_profile" -> null
+      - path        = "/" -> null
+      - role        = "jimc_ec2_role" -> null
+      - tags        = {} -> null
+      - tags_all    = {} -> null
+      - unique_id   = "AIPATX3V5KQJFWDG7GFHX" -> null
+    }
+
+  # aws_iam_role.jimc_ec2_role will be destroyed
+  - resource "aws_iam_role" "jimc_ec2_role" {
+      - arn                   = "arn:aws:iam::257408455698:role/jimc_ec2_role" -> null
+      - assume_role_policy    = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "sts:AssumeRole"
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - Service = "ec2.amazonaws.com"
+                        }
+                      - Sid       = ""
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - create_date           = "2023-09-06T19:23:17Z" -> null
+      - force_detach_policies = false -> null
+      - id                    = "jimc_ec2_role" -> null
+      - managed_policy_arns   = [] -> null
+      - max_session_duration  = 3600 -> null
+      - name                  = "jimc_ec2_role" -> null
+      - path                  = "/" -> null
+      - role_last_used        = [
+          - {
+              - last_used_date = "2023-09-06T19:34:06Z"
+              - region         = "us-east-2"
+            },
+        ] -> null
+      - tags                  = {} -> null
+      - tags_all              = {} -> null
+      - unique_id             = "AROATX3V5KQJMMWIOGGDM" -> null
+
+      - inline_policy {
+          - name   = "jimc_ec2_role_policy" -> null
+          - policy = jsonencode(
+                {
+                  - Statement = [
+                      - {
+                          - Action   = [
+                              - "s3:CreateBucket",
+                              - "s3:DeleteBucket",
+                              - "s3:GetObject",
+                              - "s3:ListAllMyBuckets",
+                            ]
+                          - Effect   = "Allow"
+                          - Resource = "*"
+                        },
+                    ]
+                  - Version   = "2012-10-17"
+                }
+            ) -> null
+        }
+    }
+
+  # aws_iam_role_policy.jimc_ec2_role_policy will be destroyed
+  - resource "aws_iam_role_policy" "jimc_ec2_role_policy" {
+      - id     = "jimc_ec2_role:jimc_ec2_role_policy" -> null
+      - name   = "jimc_ec2_role_policy" -> null
+      - policy = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action   = [
+                          - "s3:CreateBucket",
+                          - "s3:DeleteBucket",
+                          - "s3:GetObject",
+                          - "s3:ListAllMyBuckets",
+                        ]
+                      - Effect   = "Allow"
+                      - Resource = "*"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - role   = "jimc_ec2_role" -> null
+    }
+
+  # aws_instance.app_server will be destroyed
+  - resource "aws_instance" "app_server" {
+      - ami                                  = "ami-0911e88fb4687e06b" -> null
+      - arn                                  = "arn:aws:ec2:us-east-2:257408455698:instance/i-0135960f56d2e4bc1" -> null
+      - associate_public_ip_address          = true -> null
+      - availability_zone                    = "us-east-2a" -> null
+      - cpu_core_count                       = 1 -> null
+      - cpu_threads_per_core                 = 1 -> null
+      - disable_api_stop                     = false -> null
+      - disable_api_termination              = false -> null
+      - ebs_optimized                        = false -> null
+      - get_password_data                    = false -> null
+      - hibernation                          = false -> null
+      - iam_instance_profile                 = "jimc_ec2_instance_profile" -> null
+      - id                                   = "i-0135960f56d2e4bc1" -> null
+      - instance_initiated_shutdown_behavior = "stop" -> null
+      - instance_state                       = "running" -> null
+      - instance_type                        = "t2.micro" -> null
+      - ipv6_address_count                   = 0 -> null
+      - ipv6_addresses                       = [] -> null
+      - key_name                             = "JimCAWSInstanceKey" -> null
+      - monitoring                           = false -> null
+      - placement_partition_number           = 0 -> null
+      - primary_network_interface_id         = "eni-079ce29047b9b2996" -> null
+      - private_dns                          = "ip-172-31-10-229.us-east-2.compute.internal" -> null
+      - private_ip                           = "172.31.10.229" -> null
+      - public_dns                           = "ec2-3-145-58-40.us-east-2.compute.amazonaws.com" -> null
+      - public_ip                            = "3.145.58.40" -> null
+      - secondary_private_ips                = [] -> null
+      - security_groups                      = [
+          - "allow_ssh_and_http",
+        ] -> null
+      - source_dest_check                    = true -> null
+      - subnet_id                            = "subnet-06b241782b38c15a9" -> null
+      - tags                                 = {
+          - "Name" = "jimc-tf-instance"
+        } -> null
+      - tags_all                             = {
+          - "Name" = "jimc-tf-instance"
+        } -> null
+      - tenancy                              = "default" -> null
+      - user_data_replace_on_change          = false -> null
+      - vpc_security_group_ids               = [
+          - "sg-0a76c349b0f2ff2c9",
+        ] -> null
+
+      - capacity_reservation_specification {
+          - capacity_reservation_preference = "open" -> null
+        }
+
+      - cpu_options {
+          - core_count       = 1 -> null
+          - threads_per_core = 1 -> null
+        }
+
+      - credit_specification {
+          - cpu_credits = "standard" -> null
+        }
+
+      - enclave_options {
+          - enabled = false -> null
+        }
+
+      - maintenance_options {
+          - auto_recovery = "default" -> null
+        }
+
+      - metadata_options {
+          - http_endpoint               = "enabled" -> null
+          - http_put_response_hop_limit = 1 -> null
+          - http_tokens                 = "optional" -> null
+          - instance_metadata_tags      = "disabled" -> null
+        }
+
+      - private_dns_name_options {
+          - enable_resource_name_dns_a_record    = false -> null
+          - enable_resource_name_dns_aaaa_record = false -> null
+          - hostname_type                        = "ip-name" -> null
+        }
+
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/xvda" -> null
+          - encrypted             = false -> null
+          - iops                  = 100 -> null
+          - tags                  = {} -> null
+          - throughput            = 0 -> null
+          - volume_id             = "vol-0e4f10e9ccc54891c" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp2" -> null
+        }
+    }
+
+  # aws_s3_bucket.s3bucket will be destroyed
+  - resource "aws_s3_bucket" "s3bucket" {
+      - arn                         = "arn:aws:s3:::jimc-tf-bucket" -> null
+      - bucket                      = "jimc-tf-bucket" -> null
+      - bucket_domain_name          = "jimc-tf-bucket.s3.amazonaws.com" -> null
+      - bucket_regional_domain_name = "jimc-tf-bucket.s3.us-east-2.amazonaws.com" -> null
+      - force_destroy               = false -> null
+      - hosted_zone_id              = "Z2O1EMRO9K5GLX" -> null
+      - id                          = "jimc-tf-bucket" -> null
+      - object_lock_enabled         = false -> null
+      - region                      = "us-east-2" -> null
+      - request_payer               = "BucketOwner" -> null
+      - tags                        = {
+          - "Environment" = "Dev"
+          - "Name"        = "Jim C TF Bucket"
+        } -> null
+      - tags_all                    = {
+          - "Environment" = "Dev"
+          - "Name"        = "Jim C TF Bucket"
+        } -> null
+
+      - grant {
+          - id          = "8afd1aa706e84d60e96d675480145c180e48679334c2057fcb2702a345e6afef" -> null
+          - permissions = [
+              - "FULL_CONTROL",
+            ] -> null
+          - type        = "CanonicalUser" -> null
+        }
+
+      - server_side_encryption_configuration {
+          - rule {
+              - bucket_key_enabled = false -> null
+
+              - apply_server_side_encryption_by_default {
+                  - sse_algorithm = "AES256" -> null
+                }
+            }
+        }
+
+      - versioning {
+          - enabled    = false -> null
+          - mfa_delete = false -> null
+        }
+    }
+
+  # aws_s3_object.object will be destroyed
+  - resource "aws_s3_object" "object" {
+      - acl                    = "private" -> null
+      - bucket                 = "jimc-tf-bucket" -> null
+      - bucket_key_enabled     = false -> null
+      - content_type           = "binary/octet-stream" -> null
+      - etag                   = "d9eb49286a7d9efbcce1c85ac2711c4c-4" -> null
+      - force_destroy          = false -> null
+      - id                     = "g-hello.jar" -> null
+      - key                    = "g-hello.jar" -> null
+      - metadata               = {} -> null
+      - server_side_encryption = "AES256" -> null
+      - source                 = "./build/libs/g-hello-0.0.1-SNAPSHOT.jar" -> null
+      - storage_class          = "STANDARD" -> null
+      - tags                   = {} -> null
+      - tags_all               = {} -> null
+    }
+
+  # aws_security_group.allowsshandhttp will be destroyed
+  - resource "aws_security_group" "allowsshandhttp" {
+      - arn                    = "arn:aws:ec2:us-east-2:257408455698:security-group/sg-0a76c349b0f2ff2c9" -> null
+      - description            = "Allow SSH and HTTP inbound traffic" -> null
+      - egress                 = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = "Allow all outbound traffic"
+              - from_port        = 0
+              - ipv6_cidr_blocks = [
+                  - "::/0",
+                ]
+              - prefix_list_ids  = []
+              - protocol         = "-1"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 0
+            },
+        ] -> null
+      - id                     = "sg-0a76c349b0f2ff2c9" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = "Allow HTTP inbound traffic"
+              - from_port        = 8080
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 8080
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = "Allow SSH inbound traffic"
+              - from_port        = 22
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 22
+            },
+        ] -> null
+      - name                   = "allow_ssh_and_http" -> null
+      - owner_id               = "257408455698" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {
+          - "Name" = "allow_ssh_and_http"
+        } -> null
+      - tags_all               = {
+          - "Name" = "allow_ssh_and_http"
+        } -> null
+      - vpc_id                 = "vpc-0a45b8e72c09a7c94" -> null
+    }
+
+Plan: 0 to add, 0 to change, 8 to destroy.
+
+Changes to Outputs:
+  - aws_instance_arn        = "arn:aws:ec2:us-east-2:257408455698:instance/i-0135960f56d2e4bc1" -> null
+  - aws_instance_public_ip  = "3.145.58.40" -> null
+  - bucket_arn              = "arn:aws:s3:::jimc-tf-bucket" -> null
+  - bucket_domain_name      = "jimc-tf-bucket.s3.amazonaws.com" -> null
+  - iam_instance_profile_id = "jimc_ec2_instance_profile" -> null
+  - iam_role_id             = "jimc_ec2_role" -> null
+  - iam_role_policy_id      = "jimc_ec2_role:jimc_ec2_role_policy" -> null
+  - object_id               = "g-hello.jar" -> null
+  - object_key              = "g-hello.jar" -> null
+  - security_group_arn      = "arn:aws:ec2:us-east-2:257408455698:security-group/sg-0a76c349b0f2ff2c9" -> null
+  - security_group_id       = "sg-0a76c349b0f2ff2c9" -> null
+  - vpc_id                  = "vpc-0a45b8e72c09a7c94" -> null
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+aws_iam_role_policy.jimc_ec2_role_policy: Destroying... [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_s3_object.object: Destroying... [id=g-hello.jar]
+aws_s3_bucket.s3bucket: Destroying... [id=jimc-tf-bucket]
+aws_instance.app_server: Destroying... [id=i-0135960f56d2e4bc1]
+aws_s3_object.object: Destruction complete after 0s
+aws_iam_role_policy.jimc_ec2_role_policy: Destruction complete after 0s
+aws_instance.app_server: Still destroying... [id=i-0135960f56d2e4bc1, 10s elapsed]
+aws_instance.app_server: Still destroying... [id=i-0135960f56d2e4bc1, 20s elapsed]
+aws_instance.app_server: Still destroying... [id=i-0135960f56d2e4bc1, 30s elapsed]
+aws_instance.app_server: Destruction complete after 30s
+aws_iam_instance_profile.jimc_ec2_instance_profile: Destroying... [id=jimc_ec2_instance_profile]
+aws_security_group.allowsshandhttp: Destroying... [id=sg-0a76c349b0f2ff2c9]
+aws_iam_instance_profile.jimc_ec2_instance_profile: Destruction complete after 0s
+aws_iam_role.jimc_ec2_role: Destroying... [id=jimc_ec2_role]
+aws_iam_role.jimc_ec2_role: Destruction complete after 1s
+aws_security_group.allowsshandhttp: Destruction complete after 1s
+aws_default_vpc.default: Destroying... [id=vpc-0a45b8e72c09a7c94]
+aws_default_vpc.default: Destruction complete after 0s
+╷
+│ Error: deleting Amazon S3 (Simple Storage) Bucket (jimc-tf-bucket): BucketNotEmpty: The bucket you tried to delete is not empty
+│       status code: 409, request id: 86DAJYM0BBXNHEVC, host id: tPGx178FYdduEVMhHfkSfpZRF7uXymC94qhgXzrEWNA9oQtIDfRaMp2Zbd5MFNiuMXMYUUzL8DQ=
+│
+│
+╵
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform destroy
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.s3bucket will be destroyed
+  - resource "aws_s3_bucket" "s3bucket" {
+      - arn                         = "arn:aws:s3:::jimc-tf-bucket" -> null
+      - bucket                      = "jimc-tf-bucket" -> null
+      - bucket_domain_name          = "jimc-tf-bucket.s3.amazonaws.com" -> null
+      - bucket_regional_domain_name = "jimc-tf-bucket.s3.us-east-2.amazonaws.com" -> null
+      - force_destroy               = false -> null
+      - hosted_zone_id              = "Z2O1EMRO9K5GLX" -> null
+      - id                          = "jimc-tf-bucket" -> null
+      - object_lock_enabled         = false -> null
+      - region                      = "us-east-2" -> null
+      - request_payer               = "BucketOwner" -> null
+      - tags                        = {
+          - "Environment" = "Dev"
+          - "Name"        = "Jim C TF Bucket"
+        } -> null
+      - tags_all                    = {
+          - "Environment" = "Dev"
+          - "Name"        = "Jim C TF Bucket"
+        } -> null
+
+      - grant {
+          - id          = "8afd1aa706e84d60e96d675480145c180e48679334c2057fcb2702a345e6afef" -> null
+          - permissions = [
+              - "FULL_CONTROL",
+            ] -> null
+          - type        = "CanonicalUser" -> null
+        }
+
+      - server_side_encryption_configuration {
+          - rule {
+              - bucket_key_enabled = false -> null
+
+              - apply_server_side_encryption_by_default {
+                  - sse_algorithm = "AES256" -> null
+                }
+            }
+        }
+
+      - versioning {
+          - enabled    = false -> null
+          - mfa_delete = false -> null
+        }
+    }
+
+Plan: 0 to add, 0 to change, 1 to destroy.
+
+Changes to Outputs:
+  - bucket_arn         = "arn:aws:s3:::jimc-tf-bucket" -> null
+  - bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com" -> null
+  - object_key         = "g-hello.jar" -> null
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+aws_s3_bucket.s3bucket: Destroying... [id=jimc-tf-bucket]
+aws_s3_bucket.s3bucket: Destruction complete after 0s
+
+Destroy complete! Resources: 1 destroyed.
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git add -A
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git commit -m "Added DeleteObject to IAM Role Policy"
+[main bbe2884] Added DeleteObject to IAM Role Policy
+ 2 files changed, 7 insertions(+)
+ create mode 100644 startup.sh
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ git push
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 517 bytes | 517.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+To gitlab.galvanizelabs.net:cohorts/sf/ase-apr-23/aws/students/jim-cannamela/tf-checkpoint.git
+   2ddaa88..bbe2884  main -> main
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform validate
+Success! The configuration is valid.
+
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_default_vpc.default will be created
+  + resource "aws_default_vpc" "default" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = (known after apply)
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_classiclink                   = (known after apply)
+      + enable_classiclink_dns_support       = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + existing_default_vpc                 = (known after apply)
+      + force_destroy                        = false
+      + id                                   = (known after apply)
+      + instance_tenancy                     = (known after apply)
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Name" = "Default VPC"
+        }
+      + tags_all                             = {
+          + "Name" = "Default VPC"
+        }
+    }
+
+  # aws_iam_instance_profile.jimc_ec2_instance_profile will be created
+  + resource "aws_iam_instance_profile" "jimc_ec2_instance_profile" {
+      + arn         = (known after apply)
+      + create_date = (known after apply)
+      + id          = (known after apply)
+      + name        = "jimc_ec2_instance_profile"
+      + name_prefix = (known after apply)
+      + path        = "/"
+      + role        = "jimc_ec2_role"
+      + tags_all    = (known after apply)
+      + unique_id   = (known after apply)
+    }
+
+  # aws_iam_role.jimc_ec2_role will be created
+  + resource "aws_iam_role" "jimc_ec2_role" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "ec2.amazonaws.com"
+                        }
+                      + Sid       = ""
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "jimc_ec2_role"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + role_last_used        = (known after apply)
+      + tags_all              = (known after apply)
+      + unique_id             = (known after apply)
+    }
+
+  # aws_iam_role_policy.jimc_ec2_role_policy will be created
+  + resource "aws_iam_role_policy" "jimc_ec2_role_policy" {
+      + id     = (known after apply)
+      + name   = "jimc_ec2_role_policy"
+      + policy = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action   = [
+                          + "s3:CreateBucket",
+                          + "s3:DeleteBucket",
+                          + "s3:GetObject",
+                          + "s3:ListAllMyBuckets",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + role   = (known after apply)
+    }
+
+  # aws_instance.app_server will be created
+  + resource "aws_instance" "app_server" {
+      + ami                                  = "ami-0911e88fb4687e06b"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "JimCAWSInstanceKey"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = [
+          + "allow_ssh_and_http",
+        ]
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "jimc-tf-instance"
+        }
+      + tags_all                             = {
+          + "Name" = "jimc-tf-instance"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = "0b3675143fa62a3ecea004ad227aea390fa9836b"
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+    }
+
+  # aws_s3_bucket.s3bucket will be created
+  + resource "aws_s3_bucket" "s3bucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "jimc-tf-bucket"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + tags_all                    = {
+          + "Environment" = "Dev"
+          + "Name"        = "Jim C TF Bucket"
+        }
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+  # aws_s3_object.object will be created
+  + resource "aws_s3_object" "object" {
+      + acl                    = "private"
+      + bucket                 = "jimc-tf-bucket"
+      + bucket_key_enabled     = (known after apply)
+      + content_type           = (known after apply)
+      + etag                   = (known after apply)
+      + force_destroy          = false
+      + id                     = (known after apply)
+      + key                    = "g-hello.jar"
+      + kms_key_id             = (known after apply)
+      + server_side_encryption = (known after apply)
+      + source                 = "./build/libs/g-hello-0.0.1-SNAPSHOT.jar"
+      + storage_class          = (known after apply)
+      + tags_all               = (known after apply)
+      + version_id             = (known after apply)
+    }
+
+  # aws_security_group.allowsshandhttp will be created
+  + resource "aws_security_group" "allowsshandhttp" {
+      + arn                    = (known after apply)
+      + description            = "Allow SSH and HTTP inbound traffic"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow all outbound traffic"
+              + from_port        = 0
+              + ipv6_cidr_blocks = [
+                  + "::/0",
+                ]
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow HTTP inbound traffic"
+              + from_port        = 8080
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 8080
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow SSH inbound traffic"
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+            },
+        ]
+      + name                   = "allow_ssh_and_http"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "allow_ssh_and_http"
+        }
+      + tags_all               = {
+          + "Name" = "allow_ssh_and_http"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+Plan: 8 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + aws_instance_arn        = (known after apply)
+  + aws_instance_public_ip  = (known after apply)
+  + bucket_arn              = (known after apply)
+  + bucket_domain_name      = (known after apply)
+  + iam_instance_profile_id = (known after apply)
+  + iam_role_id             = (known after apply)
+  + iam_role_policy_id      = (known after apply)
+  + object_id               = (known after apply)
+  + object_key              = "g-hello.jar"
+  + security_group_arn      = (known after apply)
+  + security_group_id       = (known after apply)
+  + vpc_id                  = (known after apply)
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_iam_role.jimc_ec2_role: Creating...
+aws_s3_object.object: Creating...
+aws_default_vpc.default: Creating...
+aws_s3_bucket.s3bucket: Creating...
+aws_iam_role.jimc_ec2_role: Creation complete after 1s [id=jimc_ec2_role]
+aws_iam_role_policy.jimc_ec2_role_policy: Creating...
+aws_iam_instance_profile.jimc_ec2_instance_profile: Creating...
+aws_iam_role_policy.jimc_ec2_role_policy: Creation complete after 0s [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_iam_instance_profile.jimc_ec2_instance_profile: Creation complete after 0s [id=jimc_ec2_instance_profile]
+aws_s3_bucket.s3bucket: Creation complete after 2s [id=jimc-tf-bucket]
+aws_default_vpc.default: Creation complete after 2s [id=vpc-0a45b8e72c09a7c94]
+aws_security_group.allowsshandhttp: Creating...
+aws_security_group.allowsshandhttp: Creation complete after 2s [id=sg-056237c0cf54d2d8b]
+aws_instance.app_server: Creating...
+aws_instance.app_server: Still creating... [10s elapsed]
+aws_instance.app_server: Still creating... [20s elapsed]
+aws_instance.app_server: Still creating... [30s elapsed]
+aws_instance.app_server: Creation complete after 37s [id=i-08974fe84a3a5ea37]
+╷
+│ Error: uploading object to S3 bucket (jimc-tf-bucket): NoSuchBucket: The specified bucket does not exist
+│       status code: 404, request id: F4EXC8BTMNWS3HQP, host id: A/4JoWk/GQfv1VBXMiM3HqllM0c22KANfGvwiOjH0NtO6CPDeHpmLyN6vdNGjYsZ30wFuYGnmu4=
+│
+│   with aws_s3_object.object,
+│   on main.tf line 25, in resource "aws_s3_object" "object":
+│   25: resource "aws_s3_object" "object" {
+│
+╵
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$ terraform apply
+aws_default_vpc.default: Refreshing state... [id=vpc-0a45b8e72c09a7c94]
+aws_iam_role.jimc_ec2_role: Refreshing state... [id=jimc_ec2_role]
+aws_s3_bucket.s3bucket: Refreshing state... [id=jimc-tf-bucket]
+aws_iam_role_policy.jimc_ec2_role_policy: Refreshing state... [id=jimc_ec2_role:jimc_ec2_role_policy]
+aws_iam_instance_profile.jimc_ec2_instance_profile: Refreshing state... [id=jimc_ec2_instance_profile]
+aws_security_group.allowsshandhttp: Refreshing state... [id=sg-056237c0cf54d2d8b]
+aws_instance.app_server: Refreshing state... [id=i-08974fe84a3a5ea37]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_object.object will be created
+  + resource "aws_s3_object" "object" {
+      + acl                    = "private"
+      + bucket                 = "jimc-tf-bucket"
+      + bucket_key_enabled     = (known after apply)
+      + content_type           = (known after apply)
+      + etag                   = (known after apply)
+      + force_destroy          = false
+      + id                     = (known after apply)
+      + key                    = "g-hello.jar"
+      + kms_key_id             = (known after apply)
+      + server_side_encryption = (known after apply)
+      + source                 = "./build/libs/g-hello-0.0.1-SNAPSHOT.jar"
+      + storage_class          = (known after apply)
+      + tags_all               = (known after apply)
+      + version_id             = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + object_id               = (known after apply)
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_s3_object.object: Creating...
+aws_s3_object.object: Creation complete after 7s [id=g-hello.jar]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+aws_instance_arn = "arn:aws:ec2:us-east-2:257408455698:instance/i-08974fe84a3a5ea37"
+aws_instance_public_ip = "18.191.77.126"
+bucket_arn = "arn:aws:s3:::jimc-tf-bucket"
+bucket_domain_name = "jimc-tf-bucket.s3.amazonaws.com"
+iam_instance_profile_id = "jimc_ec2_instance_profile"
+iam_role_id = "jimc_ec2_role"
+iam_role_policy_id = "jimc_ec2_role:jimc_ec2_role_policy"
+object_id = "g-hello.jar"
+object_key = "g-hello.jar"
+security_group_arn = "arn:aws:ec2:us-east-2:257408455698:security-group/sg-056237c0cf54d2d8b"
+security_group_id = "sg-056237c0cf54d2d8b"
+vpc_id = "vpc-0a45b8e72c09a7c94"
+
+jimca@DESKTOP-HI20V6F MINGW64 ~/terraform/tf-checkpoint (main)
+$
+
+---- Successfully destroyed and recreated
