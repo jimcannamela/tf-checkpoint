@@ -14,7 +14,6 @@ provider "aws" {
 # Create an aws_s3_bucket
 resource "aws_s3_bucket" "s3bucket" {
   bucket = var.bucket_name
-#   force_destroy = true
 
   tags = {
     Name        = var.bucket_tag
