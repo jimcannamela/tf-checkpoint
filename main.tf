@@ -21,7 +21,13 @@ resource "aws_s3_bucket" "s3bucket" {
   }
 }
 
-# aws_s3_object
+# Add an aws_s3_object (g-hello jar file)
+resource "aws_s3_object" "object" {
+    bucket = var.bucket_name
+    key = var.target_file_name
+    source = var.source_file_name
+}
+
 # aws_security_group
 #   aws_default_vpc (optional, see aws_security_group hint for details)
 # aws_iam_role_policy
