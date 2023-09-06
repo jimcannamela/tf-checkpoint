@@ -1,10 +1,10 @@
 output "bucket_arn" {
-    description = "ARN of created bucket"
+    description = "S3 Bucket ARN"
     value       = aws_s3_bucket.s3bucket.arn
 }
 
 output "bucket_domain_name" {
-    description = "Domain Name of created bucket"
+    description = "S3 Bucket Domain Name"
     value       = aws_s3_bucket.s3bucket.bucket_domain_name
 }
 
@@ -24,11 +24,27 @@ output "vpc_id" {
 }
 
 output "security_group_arn" {
-    description = "Security group ARN"
+    description = "Security Group ARN"
     value = aws_security_group.allowsshandhttp.arn
 }
 
 output "security_group_id" {
-    description = "Security group id"
+    description = "Security Group id"
     value = aws_security_group.allowsshandhttp.id
 }
+
+output "iam_role_id" {
+    description = "IAM Role id"
+    value = aws_iam_role.jimc_ec2_role.id
+}
+
+output "iam_role_policy_id" {
+    description = "IAM Role Policy id"
+    value = aws_iam_role_policy.jimc_ec2_role_policy.id  
+}
+
+output "iam_instance_profile_id" {
+    description = "IAM Instance Profile id"
+    value = aws_iam_instance_profile.jimc_ec2_instance_profile.id
+} 
+

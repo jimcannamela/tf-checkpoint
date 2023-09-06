@@ -72,7 +72,49 @@ resource "aws_security_group" "allowsshandhttp" {
 
 }
 
-# aws_iam_role_policy
-# aws_iam_role
-# aws_iam_instance_profile
+# Create aws_iam_role
+resource "aws_iam_role" "jimc_ec2_role" {
+  name = "jimc_ec2_role"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      }
+    ]
+  })
+}
+
+# Create aws_iam_role_policy
+resource "aws_iam_role_policy" "jimc_ec2_role_policy" {
+  name = "jimc_ec2_role_policy"
+  role = aws_iam_role.jimc_ec2_role.id
+  
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "s3:CreateBucket",
+          "s3:DeleteBucket",
+          "s3:ListAllMyBuckets"
+        ]
+        Effect = "Allow"
+        Resource = "*"
+      }
+    ]
+  })
+}
+
+# Create aws_iam_instance_profile
+resource "aws_iam_instance_profile" "jimc_ec2_instance_profile" {
+  name = "jimc_ec2_instance_profile"
+  role = aws_iam_role.jimc_ec2_role.name
+}
+
 # aws_instance
