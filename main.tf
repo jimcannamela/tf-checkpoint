@@ -11,7 +11,15 @@ provider "aws" {
   region = "us-east-2"
 }
 
-# aws_s3_bucket
+# Create an aws_s3_bucket
+resource "aws_s3_bucket" "s3bucket" {
+  bucket = var.bucket_name
+
+  tags = {
+    Name        = var.bucket_tag
+    Environment = "Dev"
+  }
+}
 
 # aws_s3_object
 # aws_security_group
