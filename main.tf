@@ -117,4 +117,21 @@ resource "aws_iam_instance_profile" "jimc_ec2_instance_profile" {
   role = aws_iam_role.jimc_ec2_role.name
 }
 
-# aws_instance
+# Create EC2 Instance aws_instance
+resource "aws_instance" "app_server" {
+  ami           = "ami-0911e88fb4687e06b"
+  instance_type = "t2.micro"
+
+  security_groups = [aws_security_group.allowsshandhttp.name]
+
+  associate_public_ip_address = true
+
+  key_name = "JimCAWSInstanceKey"
+  
+  iam_instance_profile = aws_iam_instance_profile.jimc_ec2_instance_profile.id
+
+  tags = {
+    Name = "jimc-tf-instance"
+  }
+
+}

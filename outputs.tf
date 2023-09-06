@@ -48,3 +48,12 @@ output "iam_instance_profile_id" {
     value = aws_iam_instance_profile.jimc_ec2_instance_profile.id
 } 
 
+output "aws_instance_arn" {
+    description = "EC2 Instance ARN"
+    value = aws_instance.app_server.arn
+}
+
+output "aws_instance_public_ip" {
+    description = "EC2 Instance Public IP"
+    value = aws_instance.app_server.public_ip
+}
