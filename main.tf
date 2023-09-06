@@ -131,6 +131,8 @@ resource "aws_instance" "app_server" {
   
   iam_instance_profile = aws_iam_instance_profile.jimc_ec2_instance_profile.id
 
+  user_data = file("startup.sh")
+
   tags = {
     Name = "jimc-tf-instance"
   }
